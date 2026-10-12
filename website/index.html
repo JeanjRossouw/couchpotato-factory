@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Factory Manager | Software for SA furniture factories</title>
+<meta name="description" content="Run your furniture factory from one screen: orders, job cards, costing, till, dispatch and invoicing. Built in a Bellville factory. R 799/month, 14 days free, no card.">
+<link rel="canonical" href="https://factorymanager.co.za/">
+<meta name="theme-color" content="#1E2F2B">
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Factory Manager">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:url" content="https://factorymanager.co.za/">
+<meta property="og:title" content="Factory Manager: run your furniture factory from one screen">
+<meta property="og:description" content="Orders, job cards, costing, till, dispatch and invoices for South African furniture manufacturers. R 799/month, everything included. 14 days free.">
+<meta property="og:image" content="https://factorymanager.co.za/og-image.jpg"><!-- [ADD og-image.jpg 1200x630: tablet on a workbench, logo + one-line promise] -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect x='1' y='1' width='32' height='32' rx='6' fill='%231E2F2B'/%3E%3Cpath d='M8 24V12l6 4V12l6 4V10h6v14z' fill='%23F59E5B'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Factory Manager","applicationCategory":"BusinessApplication","operatingSystem":"Web browser","url":"https://factorymanager.co.za/","description":"Online software that runs a furniture factory: orders, production planning, costing, point of sale, dispatch and invoicing.","offers":{"@type":"Offer","price":"799","priceCurrency":"ZAR","description":"Per month, everything included. 14-day free trial."}}
+</script>
+
+<!-- [TRACKING] Paste the Google tag (gtag.js, GA4 + Google Ads) and Meta Pixel base code here.
+     Fire the trial_signup conversion inside the app after the account is created, not on this page. -->
+
+<style>
+:root{--ground:#F3F1EC;--paper:#FFFFFF;--ink:#1B1E1C;--muted:#3F4541;--soft:#4F5551;--line:#DAD6CD;--accent:#C2410C;--accent-ink:#8A3108;--dark:#1E2F2B;--on-dark:#EDEBE5;--dim-on-dark:#C9C6BD;--glow:#F59E5B;--hatch1:#E7E3DA;--hatch2:#EDEAE3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.55 "IBM Plex Sans",-apple-system,"Segoe UI",system-ui,sans-serif;-webkit-text-size-adjust:100%}
+a{color:#B03A0A}a:hover{color:#7C2906}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+.display,h1,h2{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;letter-spacing:-.3px}
+h1{font-size:clamp(42px,9vw,76px);line-height:.98;margin:0 0 20px}
+h2{font-size:clamp(34px,6vw,54px);line-height:1.02;margin:0 0 16px}
+h3{font-size:21px;line-height:1.25;margin:0 0 8px}
+p{margin:0}
+.eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:12px}
+.lead{font-size:19px;color:var(--muted);max-width:56ch}
+section{padding:64px 0}
+@media(min-width:768px){section{padding:88px 0}.wrap{padding:0 20px}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 24px;border-radius:6px;font-weight:600;font-size:17px;text-decoration:none;border:2px solid transparent;transition:background .15s}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:#9A3409;color:#fff}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--ground)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+
+/* header */
+.top{position:sticky;top:0;z-index:10;background:rgba(243,241,236,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand span{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;font-size:24px}
+.nav{display:none;gap:22px;align-items:center;font-weight:500;font-size:15px}
+.nav a{color:var(--ink);text-decoration:none}
+.nav .btn{color:#fff;font-size:15px;min-height:44px;padding:8px 16px}
+.menu-btn{min-width:44px;min-height:44px;border:1px solid var(--line);background:var(--paper);border-radius:6px;font:inherit;font-weight:600;cursor:pointer}
+.nav.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--ground);border-bottom:1px solid var(--line);padding:12px 16px 20px;gap:4px}
+.nav.open a{padding:12px 0}
+@media(min-width:880px){.nav{display:flex}.menu-btn{display:none}}
+
+/* hero */
+.hero .wrap{display:grid;gap:40px;align-items:center}
+@media(min-width:960px){.hero .wrap{grid-template-columns:1.05fr 1fr;gap:56px}}
+.hero .lead{font-size:20px;max-width:34ch;margin-bottom:28px}
+.fine{font-size:15px;color:var(--soft);margin-top:18px}
+.tablet{background:var(--ink);border-radius:22px;padding:14px;box-shadow:0 30px 60px -30px rgba(27,30,28,.55)}
+.shot{aspect-ratio:4/3;border-radius:10px;background:repeating-linear-gradient(135deg,var(--hatch1) 0 14px,var(--hatch2) 14px 28px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;color:var(--soft);font:500 13px/1.4 "IBM Plex Mono",ui-monospace,monospace}
+.shot b{font:600 15px/1.4 "IBM Plex Sans",system-ui,sans-serif;color:var(--ink);max-width:30ch}
+.shot.wide{aspect-ratio:16/10;border-radius:8px;margin-bottom:18px}
+
+/* proof */
+.proof{background:var(--dark);color:var(--on-dark);padding:20px 0}
+.proof .wrap{display:flex;flex-wrap:wrap;gap:8px 40px;justify-content:space-between;align-items:center}
+.proof strong{color:var(--glow)}
+.proof .ph{font:500 14px "IBM Plex Mono",monospace;color:var(--dim-on-dark)}
+
+/* cards */
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:26px}
+.card svg{margin-bottom:12px}
+.card p,.feat p,.steps p{color:var(--muted)}
+
+/* before/after */
+.ba{margin-top:32px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper)}
+.ba-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.ba-row:first-child{border-top:0}
+.ba-row>div{padding:14px 16px}
+.ba-row>div+div{border-left:1px solid var(--line)}
+.ba-row>div:first-child{color:var(--muted)}
+.ba-head>div{font:700 22px "Barlow Condensed","Arial Narrow",sans-serif}
+.ba-head>div:first-child{background:var(--hatch1);color:var(--ink)}
+.ba-head>div+div{background:var(--dark);color:var(--ground)}
+@media(min-width:768px){.ba-row>div{padding:16px 24px}}
+
+/* features */
+.features{background:var(--paper);border-block:1px solid var(--line)}
+.feat-grid{display:grid;gap:40px 32px;margin-top:40px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.feat .tag{font:500 12px "IBM Plex Mono",monospace;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-ink);margin-bottom:4px}
+
+/* steps */
+.steps{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.steps li{border-top:4px solid var(--ink);padding-top:18px}
+.steps .num{font:700 56px/1 "Barlow Condensed","Arial Narrow",sans-serif;color:var(--accent)}
+.steps h3{margin-top:10px}
+
+/* pricing */
+.pricing{background:var(--dark);color:var(--on-dark)}
+.pricing .wrap{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.pricing .wrap{grid-template-columns:1fr 1fr;gap:56px}}
+.pricing .eyebrow{color:var(--glow)}
+.pricing .lead{color:var(--dim-on-dark)}
+.price-card{background:var(--ground);color:var(--ink);border-radius:12px;padding:32px 24px}
+@media(min-width:600px){.price-card{padding:36px}}
+.amount{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.amount .big{font:700 72px/1 "Barlow Condensed","Arial Narrow",sans-serif}
+.amount span:last-child{color:var(--soft);font-size:18px}
+.vat{font:500 13px "IBM Plex Mono",monospace;color:var(--soft);margin:4px 0 22px}
+.ticks{list-style:none;margin:0 0 28px;padding:0;display:grid;gap:10px}
+.ticks li{display:flex;gap:10px}
+.ticks svg{flex:none;margin-top:2px}
+.price-card .btn{width:100%}
+.price-card .fine{text-align:center;margin-top:12px}
+
+/* faq */
+.faq .wrap{max-width:860px}
+details{border-top:1px solid #CFCAC0}
+details:last-of-type{border-bottom:1px solid #CFCAC0}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-weight:600;font-size:19px;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:28px;line-height:1;transition:transform .15s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding-bottom:20px}
+summary:focus-visible,.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--glow);outline-offset:3px}
+
+/* cta + footer */
+.cta{background:var(--accent);color:#fff}
+.cta .wrap{display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between}
+.cta p{color:#FFE9DC;font-size:19px}
+.cta .btn-primary{background:#fff;color:var(--ink)}.cta .btn-primary:hover{background:var(--ground)}
+.cta .btn-ghost{border-color:#fff;color:#fff}.cta .btn-ghost:hover{background:#fff;color:var(--ink)}
+footer{background:var(--ink);color:var(--dim-on-dark);font-size:15px;padding:40px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;justify-content:space-between}
+footer a{color:var(--ground)}footer a:hover{color:var(--glow)}
+footer .col{display:flex;flex-direction:column;gap:8px}
+footer .name{font:700 22px "Barlow Condensed","Arial Narrow",sans-serif;color:var(--ground)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Factory Manager home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="6" fill="#1E2F2B"/><path d="M8 24V12l6 4V12l6 4V10h6v14z" fill="#F59E5B"/></svg>
+      <span>Factory Manager</span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="/app/">Log in</a>
+      <a class="btn btn-primary" href="/app/?signup=1" data-cta="nav_trial">Start free trial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Software for South African furniture factories</p>
+      <h1>Run your furniture factory from one screen.</h1>
+      <p class="lead">Orders, job cards, costing, till, dispatch and invoices. Everything between the order and the invoice, in one place your whole team can see.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="/app/?signup=1" data-cta="hero_trial">Start free trial</a>
+        <a class="btn btn-ghost" href="/app/?demo=1" data-cta="hero_demo">Try the demo</a>
+      </div>
+      <p class="fine">14 days free · No card needed · R 799/month after that, everything included</p>
+    </div>
+    <div>
+      <div class="tablet">
+        <!-- [SCREENSHOT 1] Replace this div with:
+             <img src="/img/orders-tablet.webp" width="1600" height="1200" alt="Factory Manager orders board on a tablet, showing each order's stage and due date" fetchpriority="high">
+             Best: a real photo of a tablet on a workbench, fabric and frames behind it. -->
+        <div class="shot">[SCREENSHOT 1 — 1600×1200]<b>Orders board on a tablet: this week's orders, stage in the factory, due dates</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="proof">
+  <div class="wrap">
+    <p><strong>Built on a factory floor.</strong> Factory Manager runs Bellville Furniture's own factory every day.</p>
+    <p class="ph">[ADD: first customer name + quote, or "X orders run through it since 2025"]</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Sound familiar?</p>
+    <h2 style="max-width:20ch">Most factories don't run on a system. They run on the foreman's memory.</h2>
+    <div class="grid" style="margin-top:32px">
+      <div class="card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><path d="M9 13l6 6M15 13l-6 6"/></svg>
+        <h3>The job card went missing</h3>
+        <p>It was on the cutting table on Tuesday. Now the customer is phoning and nobody knows if the frame is even built.</p>
+      </div>
+      <div class="card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>
+        <h3>Orders live in five WhatsApp chats</h3>
+        <p>Fabric choice in one chat, the deposit in another, the delivery address in a voice note. Something always slips.</p>
+      </div>
+      <div class="card">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17.5v.01"/></svg>
+        <h3>You're guessing what a couch costs</h3>
+        <p>Foam and fabric prices moved again. The costing sheet didn't. You only find out at month-end whether that order made money.</p>
+      </div>
+    </div>
+
+    <div class="ba" role="table" aria-label="Before and after Factory Manager">
+      <div class="ba-row ba-head" role="row"><div role="columnheader">Before</div><div role="columnheader">With Factory Manager</div></div>
+      <div class="ba-row" role="row"><div role="cell">Paper job cards that get lost or end up under the glue pot</div><div role="cell">Job cards printed from the system, and every order's stage on one screen</div></div>
+      <div class="ba-row" role="row"><div role="cell">"Where's my couch?" calls you can't answer without walking the floor</div><div role="cell">Look the order up and tell the customer while they're still on the line</div></div>
+      <div class="ba-row" role="row"><div role="cell">Costing in an old Excel sheet nobody trusts</div><div role="cell">A bill of materials per product: materials, labour, overheads and margin</div></div>
+      <div class="ba-row" role="row"><div role="cell">Deliveries signed for on a scrap of paper, if at all</div><div role="cell">Customer signs on the driver's phone and gets a notification</div></div>
+      <div class="ba-row" role="row"><div role="cell">Invoices done at month-end, from memory</div><div role="cell">Everything dispatched gets billed, and a profit report shows what you made</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="wrap">
+    <p class="eyebrow">What it does</p>
+    <h2>From the order to the invoice.</h2>
+    <p class="lead">Seven parts, one system. Use all of it from day one, or start with orders and job cards and add the rest when you're ready.</p>
+    <div class="feat-grid">
+      <!-- [SCREENSHOTS 2–8] Replace each .shot div with <img src="/img/…webp" width="1600" height="1000" alt="…" loading="lazy"> -->
+      <article class="feat">
+        <div class="shot wide">[SCREENSHOT 2 — Orders list with stages and due dates]</div>
+        <p class="tag">Orders</p>
+        <h3>Know where every order is.</h3>
+        <p>Every order, its stage in the factory and its due date on one list. No more walking the floor to find out.</p>
+      </article>
+      <article class="feat">
+        <div class="shot wide">[SCREENSHOT 3 — Weekly plan + a printed job card]</div>
+        <p class="tag">Production planning</p>
+        <h3>Plan the weeks ahead.</h3>
+        <p>Load the coming weeks, print job cards, and give each worker only the jobs they need to see.</p>
+      </article>
+      <article class="feat">
+        <div class="shot wide">[SCREENSHOT 4 — Bill of materials for a 3-seater]</div>
+        <p class="tag">Costing</p>
+        <h3>Know what a couch really costs you.</h3>
+        <p>Bills of materials with materials, labour, overheads and margin. Quote with numbers, not gut feel.</p>
+      </article>
+      <article class="feat">
+        <div class="shot wide">[SCREENSHOT 5 — Excel import screen, columns matched]</div>
+        <p class="tag">Excel import</p>
+        <h3>Bring your spreadsheets with you.</h3>
+        <p>Import products, costings and customers straight from the Excel sheets you already use. No retyping.</p>
+      </article>
+      <article class="feat">
+        <div class="shot wide">[SCREENSHOT 6 — Till with a stock item and a made-to-order item]</div>
+        <p class="tag">Till / point of sale</p>
+        <h3>Sell from the showroom floor.</h3>
+        <p>Floor stock and made-to-order in one sale. Barcode scanning, returns and credit notes, and it syncs with Shopify.</p>
+      </article>
+      <article class="feat">
+        <div class="shot wide">[SCREENSHOT 7 — Driver's phone with signature screen]</div>
+        <p class="tag">Dispatch and delivery</p>
+        <h3>Out the door, signed for.</h3>
+        <p>Scan items at the door, give drivers their tasks. The customer signs on delivery and gets notified.</p>
+      </article>
+      <article class="feat">
+        <div class="shot wide">[SCREENSHOT 8 — Invoice + profit report]</div>
+        <p class="tag">Invoicing</p>
+        <h3>Bill everything that leaves.</h3>
+        <p>Everything dispatched gets invoiced. Credit notes when you need them, and a profit report that shows what you actually made.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Running today, not in six months.</h2>
+    <ol class="steps">
+      <li><span class="num">1</span><h3>Sign up</h3><p>Create your account. No card, no sales call, no contract.</p></li>
+      <li><span class="num">2</span><h3>Import your Excel</h3><p>Upload the sheets you already have: products, costings, customers. Match the columns and you're in.</p></li>
+      <li><span class="num">3</span><h3>Run the floor today</h3><p>Capture this week's orders, print the job cards and put a tablet on the floor.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Pricing</p>
+      <h2>One price. Everything in it.</h2>
+      <p class="lead">No per-user fees, so the whole team can log in, from the cutting room to the driver. No limit on orders, so a busy month doesn't cost you more.</p>
+    </div>
+    <div class="price-card">
+      <p style="font-weight:600;font-size:18px;margin-bottom:6px">Factory Manager</p>
+      <p class="amount"><span class="big">R 799</span><span>per month</span></p>
+      <p class="vat">[excl. VAT — confirm]</p>
+      <ul class="ticks">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Orders, planning, job cards and costing</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Till, dispatch, delivery and invoicing</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Excel import and Shopify sync</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Unlimited users and unlimited orders</li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2410C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>Support on WhatsApp and email</li>
+      </ul>
+      <a class="btn btn-primary" href="/app/?signup=1" data-cta="pricing_trial">Start your 14 days free</a>
+      <p class="fine">No card needed. Cancel any time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Questions</p>
+    <h2 style="margin-bottom:28px">What owners ask us first.</h2>
+    <details><summary>Is my data safe?</summary><p>Your data sits on [HOSTING PROVIDER] servers, is backed up [DAILY], and only people you invite can see it. It's your data: export it to Excel any time.</p></details>
+    <details><summary>Do I need internet?</summary><p>Yes, it runs in your browser. Normal fibre or LTE is plenty. [CONFIRM: what still works during load-shedding or when the line drops]</p></details>
+    <details><summary>Does it work on phones and tablets?</summary><p>Yes. Any phone, tablet or PC with a modern browser, nothing to install. A basic tablet on the factory floor and the drivers' own phones are enough.</p></details>
+    <details><summary>We run everything on Excel. How hard is it to move?</summary><p>Upload your product, costing and customer sheets and match the columns. Most factories are capturing orders the same day. Stuck? Send us the sheet and we'll help.</p></details>
+    <details><summary>How do I cancel?</summary><p>From your settings, any time. No contract, no notice period. Export your data before you go.</p></details>
+    <details><summary>What support do I get?</summary><p>WhatsApp and email, [HOURS, e.g. Mon–Fri 8:00–17:00], from people who run a furniture factory themselves.</p></details>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div>
+      <h2 style="margin-bottom:10px">Put this week's orders in tonight.</h2>
+      <p>14 days free. No card. If it doesn't help, you've lost nothing.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn-primary" href="/app/?signup=1" data-cta="footer_trial">Start free trial</a>
+      <a class="btn btn-ghost" href="/app/?demo=1" data-cta="footer_demo">Try the demo</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col">
+      <span class="name">Factory Manager</span>
+      <span>Made in Bellville, Cape Town.</span>
+    </div>
+    <div class="col">
+      <a href="mailto:[EMAIL]">[EMAIL]</a>
+      <a href="https://wa.me/[WHATSAPP-NUMBER-INTL-NO-PLUS]">WhatsApp [NUMBER]</a>
+    </div>
+    <div class="col">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <span>© <span id="yr">2026</span> [REGISTERED COMPANY NAME]</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Mobile menu
+  var btn = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  });
+
+  // Carry UTM / click IDs from the landing URL onto every /app/ link,
+  // so the app can store the source on the new account.
+  var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid', 'li_fat_id'];
+  var here = new URLSearchParams(location.search), keep = {};
+  try { keep = JSON.parse(sessionStorage.getItem('fm_utm') || '{}'); } catch (e) {}
+  keys.forEach(function (k) { if (here.get(k)) keep[k] = here.get(k); });
+  try { sessionStorage.setItem('fm_utm', JSON.stringify(keep)); } catch (e) {}
+  document.querySelectorAll('a[href^="/app/"]').forEach(function (a) {
+    var u = new URL(a.getAttribute('href'), location.origin);
+    Object.keys(keep).forEach(function (k) { u.searchParams.set(k, keep[k]); });
+    a.href = u.pathname + u.search;
+  });
+
+  // CTA clicks → analytics (only fires if gtag / fbq are installed)
+  document.querySelectorAll('[data-cta]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var id = a.getAttribute('data-cta'), demo = id.indexOf('demo') > -1;
+      if (window.gtag) gtag('event', demo ? 'demo_click' : 'trial_click', { cta: id });
+      if (window.fbq) fbq('trackCustom', demo ? 'DemoClick' : 'TrialClick', { cta: id });
+    });
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
